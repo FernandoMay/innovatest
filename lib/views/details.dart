@@ -32,16 +32,25 @@ class _DetailsState extends State<Details> {
       child: SafeArea(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CircleAvatar(
-                child: Text(
-                  widget.employee!.id.toString(),
-                  style: innovatestH2White,
+              Padding(
+                padding: const EdgeInsets.only(top: 44.0),
+                child: CircleAvatar(
+                  child: widget.employee!.profileImage != ""
+                      ? CircleAvatar(
+                          radius: 16,
+                          backgroundImage:
+                              NetworkImage(widget.employee!.profileImage),
+                        )
+                      : Text(
+                          widget.employee!.id.toString(),
+                          style: innovatestH4White,
+                        ),
+                  backgroundColor: secondaryColor.withOpacity(0.7),
+                  radius: 88,
                 ),
-                backgroundColor: secondaryColor.withOpacity(0.8),
-                radius: 180,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -52,7 +61,7 @@ class _DetailsState extends State<Details> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       widget.employee!.employeeName,
-                      style: innovatestH2Black,
+                      style: innovatestH3Black,
                     ),
                   ),
                   Container(
@@ -60,7 +69,7 @@ class _DetailsState extends State<Details> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       widget.employee!.employeeAge.toString(),
-                      style: innovatestH1Black,
+                      style: innovatestH3Black,
                     ),
                   ),
                 ],
@@ -72,11 +81,25 @@ class _DetailsState extends State<Details> {
                   "\$ ${widget.employee!.employeeSalary.toString()}",
                   //maxLines: 3,
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 34,
                     fontWeight: FontWeight.w400,
-                    color: widget.employee!.employeeSalary > 1000
+                    color: widget.employee!.employeeSalary > 100000
                         ? successColor
                         : dangerColor,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 24.0, vertical: 16.0),
+                child: Container(
+                  width: double.infinity,
+                  child: CupertinoButton(
+                    color: secondaryColor,
+                    child: Text("Ok"),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
               ),

@@ -25,44 +25,45 @@ class _EmployeeCardState extends State<EmployeeCard> {
         );
       },
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 2.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: CircleAvatar(
-                    radius: 44,
-                    child: Text(
-                      widget.employee!.id.toString(),
-                      style: innovatestH2White,
-                    ),
-                    backgroundColor: secondaryColor.withOpacity(0.8),
-                  ),
-                ),
-                Container(
-                  //width: MediaQuery.of(context).size.width * 0.8,
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    widget.employee!.employeeName,
-                    style: innovatestH4Black,
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "\$ ${widget.employee!.employeeSalary.toString()}",
-                        style: innovatestH1Black,
+                      child: CircleAvatar(
+                        radius: 24,
+                        child: Text(
+                          widget.employee!.id.toString(),
+                          style: innovatestH2White,
+                        ),
+                        backgroundColor: secondaryColor.withOpacity(0.8),
                       ),
                     ),
+                    Container(
+                      //width: MediaQuery.of(context).size.width * 0.8,
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.employee!.employeeName,
+                        style: innovatestH3Black,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
                     Container(
                       //width: MediaQuery.of(context).size.width * 0.8,
                       padding: const EdgeInsets.all(8.0),
@@ -76,6 +77,13 @@ class _EmployeeCardState extends State<EmployeeCard> {
                               ? successColor
                               : dangerColor,
                         ),
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "\$ ${widget.employee!.employeeSalary.toString()}",
+                        style: innovatestH2Black,
                       ),
                     ),
                   ],

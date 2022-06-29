@@ -44,6 +44,13 @@ const innovatestH4Black = TextStyle(
   color: textColor,
 );
 
+const innovatestH3Black = TextStyle(
+  fontFamily: "Roboto",
+  fontSize: 20.0,
+  fontWeight: FontWeight.w400,
+  color: textColor,
+);
+
 const innovatestH2Black = TextStyle(
   fontFamily: "Roboto",
   fontSize: 16.0,
@@ -61,6 +68,13 @@ const innovatestH1Black = TextStyle(
 const innovatestH2White = TextStyle(
   fontFamily: "Roboto",
   fontSize: 18.0,
+  fontWeight: FontWeight.w400,
+  color: Colors.white,
+);
+
+const innovatestH4White = TextStyle(
+  fontFamily: "Roboto",
+  fontSize: 28.0,
   fontWeight: FontWeight.w400,
   color: Colors.white,
 );
